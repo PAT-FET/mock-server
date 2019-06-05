@@ -3,7 +3,7 @@ require('babel-register')({
   plugins: ['transform-decorators-legacy'],
   ignore: function (filename) {
     if (!filename.includes('node_modules')) return false
-    if (filename.includes('node_modules/@pat-fet/mock-server')) return true
+    if (filename.includes('node_modules/@pat-fet/mock-server')) return false
     return true
   }
 })
