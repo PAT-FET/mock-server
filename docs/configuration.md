@@ -1,5 +1,7 @@
-export default function () {
-  return {
+默认配置：
+
+```js
+{
     // host: 'localhost',
     port: 3000,
     session: {
@@ -32,4 +34,5 @@ export default function () {
       allowHeaders: 'Content-Type'
     }
   }
-}
+
+```

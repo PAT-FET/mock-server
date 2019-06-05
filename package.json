@@ -1,6 +1,6 @@
 {
   "name": "@pat-fet/mock-server",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A mock data server for web app",
   "main": "src/index.js",
   "scripts": {
