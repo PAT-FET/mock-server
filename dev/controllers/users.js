@@ -1,4 +1,4 @@
-import { Controller, RequestMapping } from '../../src/runner'
+import { Controller, RequestMapping } from '../../src/index'
 
 export default class users extends Controller{
 

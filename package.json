@@ -1,8 +1,8 @@
 {
   "name": "@pat-fet/mock-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A mock data server for web app",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./dev/index",
@@ -12,16 +12,16 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-preset-env": "^1.7.0",
+    "colors": "^1.3.3",
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
     "express-session": "^1.16.1",
     "lokijs": "^1.5.6"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-plugin-transform-decorators-legacy": "^1.3.5",
-    "babel-preset-env": "^1.7.0",
-    "colors": "^1.3.3",
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.17.3",
@@ -32,6 +32,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/PAT-FET/feedback.git"
+    "url": "https://github.com/PAT-FET/mock-server.git"
   }
 }
