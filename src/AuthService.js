@@ -1,3 +1,4 @@
+const tokenStorage = {}
 
 export default class AuthService {
   constructor (config) {
@@ -41,7 +42,9 @@ export default class AuthService {
 
     function generateToken () {
       let username = auth[self.userId]
-      return username + '_' + Date.now()
+      let token = username + '_' + Date.now()
+      tokenStorage[username] = token
+      return tokenStorage[username]
     }
   }
 
@@ -57,15 +60,19 @@ export default class AuthService {
   }
 }
 
-const tokenStorage = {}
-
 function checkToken (req, key, userId) {
   let username = req.session && req.session.user && req.session.user[userId]
   if (!username) return false
   let clientToken = req.headers[key]
-  if (!clientToken) return false
+  if (!clientToken) {
+    console.error(`未获取到客户端token, 请确保key: ${key}`)
+    return false
+  }
   let serverToken = tokenStorage[username]
-  if (!serverToken) return false
+  if (!serverToken) {
+    console.error(`未监测到服务端token`)
+    return false
+  }
   return simpleCheck(clientToken, serverToken)
 
   // just check these two token whether identical,

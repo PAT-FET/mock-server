@@ -24,7 +24,7 @@ export default function () {
       whiteList: ['/login', '/logout'],
       token: {
         enabled: true,
-        key: 'X-Token'
+        key: 'x-token'
       },
       userId: 'username'
     },
