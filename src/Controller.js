@@ -14,7 +14,7 @@ export default class Controller {
   init () {
     if (Controller.inits) {
       let data = Controller.inits[this.collection.name]
-      data = data.default || data // 兼容 export
+      data = data && (data.default || data) // 兼容 export
       if (data && Array.isArray(data)) {
         data.forEach(v => this.collection.insert(v))
       }

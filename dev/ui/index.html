@@ -7,11 +7,27 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="http://localhost:3001/nas" method="post">
+    <form action="http://localhost:3001/nas" method="post" enctype="multipart/form-data" target="nm_iframe">
     
-        <input type="file" name="files">
+        <input type="file" name="file">
 
-        <button type="submit"></button>
+        <button type="submit">上传</button>
     </form>
+    <iframe id="nm_iframe" name="nm_iframe" style="display:none;"></iframe>
+    
+    <div>
+        <input type="text" id="input" oninput="onInput()">
+        <a href="" id="link" target="_blank">下载</a>
+    </div>
+
+    <script>
+        function onInput () {
+            let base = 'http://localhost:3001/nas/'
+            let $link = document.getElementById('link')
+            let $input = document.getElementById('input')
+            let href = base + $input.value 
+            $link.setAttribute('href', href )
+        }
+    </script>
 </body>
 </html>

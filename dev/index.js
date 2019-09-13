@@ -10,9 +10,7 @@ MockServer.requireAll({ dirname: __dirname + '/controllers' })
 const config = {
   port: 3001,
   auth: {
-    token: {
-      enabled: false
-    }
+    enabled: false
   }
 }
 

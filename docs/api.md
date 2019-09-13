@@ -17,7 +17,9 @@
 
 - `MockServer.RequestMapping : (options) => void`
 
-    - options : string | {url, method}
+    - options : string | {url, method, cbs}
+
+    * `cbs` 为可选拦截器，如文件上传 `multer` 的`upload`拦截器*
 
 
 - `MockServer.requireAll : (options) => void`
@@ -36,6 +38,10 @@
     - msg: string
 
     - data: any
+
+- `MockServer.upload : Function`
+
+    - 基于`multer` 的upload中间件， 用于支持文件上传
 
 
 #### 实例属性
