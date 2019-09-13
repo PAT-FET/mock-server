@@ -18,8 +18,8 @@ export default function dispatch (context) {
   Object.keys(RequestMapping.registry).forEach(key => {
     routes.push(...RequestMapping.registry[key])
   })
-  routes.forEach(({ url, method, handler }) => {
-    app[method](url, function (req, res) {
+  routes.forEach(({ url, method, cbs, handler }) => {
+    app[method](url, cbs || [], function (req, res) {
       invoke(handler, req, res, context).then(data => {
         res.send(config.transform(normalize(data))).end()
       }).catch(e => {

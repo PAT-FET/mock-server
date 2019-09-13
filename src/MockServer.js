@@ -5,6 +5,7 @@ import Express from 'express'
 import bodyParser from 'body-parser'
 import session from 'express-session'
 import cookieParser from 'cookie-parser'
+import multer from 'multer'
 import dispatch from './dispatch'
 
 import cors from './filters/cors'
@@ -71,3 +72,4 @@ MockServer.Controller = Controller
 MockServer.RequestMapping = RequestMapping
 MockServer.requireAll = requireAll
 MockServer.ResData = ResData
+MockServer.upload = multer()

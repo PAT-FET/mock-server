@@ -23,24 +23,25 @@ const Mapping = function Mapping (options) {
     if (!(target instanceof Controller)) return
     let inst = getInst(target)
     if (!options) throw new Error('url required')
-    let url, method
+    let url, method, cbs
     if (typeof options === 'string') url = options
     else {
       url = options.url
       method = options.method
+      cbs = options.cbs
     }
     let handler = inst[name].bind(inst)
-    register(target.constructor.name, url, method, handler)
+    register(target.constructor.name, url, method, cbs, handler)
   }
 
-  function register (clzName, url, method, handler) {
+  function register (clzName, url, method, cbs, handler) {
     if (!url) throw new Error('register route fail, url required')
     if (!handler) throw new Error('register route fail, handler required')
     if (!method) method = 'all'
     method = method.toLowerCase()
     if (exist(url, method)) throw new Error(`route url [${url}], method [${method}] already registered`)
     ;(urlCache[url] || (urlCache[url] = {}))[method] = true
-    ;(Mapping.registry[clzName] || (Mapping.registry[clzName] = [])).push({ url, method, handler })
+    ;(Mapping.registry[clzName] || (Mapping.registry[clzName] = [])).push({ url, method, cbs, handler })
     console.info(`registry (${clzName}): url [${url}], method [${method}]`.blue)
   }
 }
