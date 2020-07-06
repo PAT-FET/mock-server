@@ -11,6 +11,12 @@ const config = {
   port: 3001,
   auth: {
     enabled: false
+  },
+  proxy: {
+    '/baidu': {
+      target: 'www.baidu.com',
+      options: {}
+    }
   }
 }
 

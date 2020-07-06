@@ -32,11 +32,12 @@ export default function () {
       allowHeaders: 'Content-Type'
     },
     // 代理
-    proxy: {
-      // '/api': {
-      //   target: 'www.baidu.com',
-      //   options: {}
-      // }
-    }
+    proxy: null
+    // {
+    //   '/api': {
+    //     target: 'www.baidu.com',
+    //     options: {}
+    //   }
+    // }
   }
 }

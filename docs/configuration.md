@@ -32,6 +32,12 @@
     },
     cors: {
       allowHeaders: 'Content-Type'
+    },
+    proxy: {
+      '/baidu': {
+        target: 'www.baidu.com',
+        options: {}
+      }
     }
   }
 
