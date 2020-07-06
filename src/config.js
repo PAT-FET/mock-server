@@ -30,6 +30,13 @@ export default function () {
     },
     cors: {
       allowHeaders: 'Content-Type'
+    },
+    // 代理
+    proxy: {
+      // '/api': {
+      //   target: 'www.baidu.com',
+      //   options: {}
+      // }
     }
   }
 }

@@ -11,6 +11,7 @@ import dispatch from './dispatch'
 import cors from './filters/cors'
 import auth from './filters/auth'
 import logger from './filters/logger'
+import proxy from 'express-http-proxy'
 
 import Controller from './Controller'
 import RequestMapping from './RequestMapping'
@@ -57,6 +58,9 @@ export default class MockServer {
     this.app.use(logger(this))
     this.app.use(auth(this))
     dispatch(this)
+    Object.entries(this.config.proxy || {}).forEach(([k, v]) => {
+      this.app.use(k, proxy(v.target, v.options))
+    })
   }
 
   run () {
